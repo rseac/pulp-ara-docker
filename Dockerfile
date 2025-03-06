@@ -15,7 +15,7 @@ RUN git clone https://github.com/pulp-platform/ara.git
 
 # Needs to be the evelop branch to get RVV instructions
 FROM ara-clone as ara-update
-RUN cd ara && git submodule update --init --recursive 
+RUN cd ara/cheshire/sw && git clone https://github.com/moimfeld/cva6-sdk.git && cd ../../ && git submodule update --init --recursive 
 
 FROM ara-update as ara-make
 RUN apt-get -y install ninja-build python3 texinfo
